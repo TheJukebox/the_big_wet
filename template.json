@@ -1,0 +1,22 @@
+{
+    "Actor": {
+        "types": ["character"],
+        "htmlFields": ["notes"],
+        "templates": {
+            "character": {
+                "stats": {
+                    "brain": {
+                        "value": 0
+                    },
+                    "lungs": {
+                        "value": 0
+                    },
+                    "nerves": {
+                        "value": 0
+                    }
+                },
+                "notes": ""
+            }
+        }
+    }
+}

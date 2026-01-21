@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "add": "^2.0.6",
+    "fvtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@^12.331.5",
+    "npm": "^11.7.0"
+  }
+}

@@ -1,4 +1,5 @@
 const { HTMLField, NumberField, SchemaField, StringField } = foundry.data.fields;
+const { api, sheets } = foundry.applications;
 
 export class CharacterDataModel extends foundry.abstract.TypeDataModel {
     static defineSchema() {
@@ -8,7 +9,7 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
             "Ripped",
             "Shattered",
             "Destroyed",
-        ]
+        ];
         return {
             stats: new SchemaField({
                 brain: new NumberField({ required: true, integer: true, initial: 0 }),
@@ -48,5 +49,42 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
                 }),
             }),
         }
+    };
+}
+
+export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
+    constructor(options = {}) {
+        super(options);
+        this.#dragDrop = this.#createDragDropHandlers();
+    }
+
+    static DEFAULT_OPTIONS = {
+        classes: ['thebigwet', 'character', 'actor'],
+        position: {
+            // actual sheet is like 105mm x 119mm
+            width: 603,
+            height: 714,
+        },
+        actions: {
+            viewDoc: this._viewDoc,
+        },
+        dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
+        form: {
+            submitOnChange: true,
+        },
+    };
+
+    _onRender(context: any, options: any) {
+        this.#dragDrop.forEach((d) => d.bind(this.element));
+        this.#disableOverrides();
+    }
+
+    _getEmbeddedDocument(target: EventTarget) {
+        return null;
+    }
+
+    static async _viewDoc(event: Event, target: EventTarget) {
+        const doc = this._getEmbeddedDocument(target);
+        doc.sheet.render(true);
     }
 }

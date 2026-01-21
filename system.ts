@@ -1,4 +1,4 @@
-import { CharacterDataModel } from "./module/character.js";
+import { CharacterDataModel } from "./module/character";
 
 Hooks.once("init", () => {
     CONFIG.Actor.dataModels = {
