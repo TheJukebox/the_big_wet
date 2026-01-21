@@ -20,5 +20,14 @@
     "primaryTokenAttribute": "resources.wet",
     "secondaryTokenAttribute": "resources.armour",
     "url": "https://github.com/the_jukebox/the_big_wet",
-    "manifest": "https://github.com/the_jukebox/the_big_wet"
+    "manifest": "https://github.com/the_jukebox/the_big_wet",
+    "esmodules": ["system.mjs"],
+    "documentTypes": {
+        "Actor": {
+            "character": {
+                "htmlFields": [
+                    "notes"
+                ]
+            }
+    }
 }
