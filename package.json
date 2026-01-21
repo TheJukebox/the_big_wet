@@ -1,7 +1,11 @@
 {
-  "devDependencies": {
-    "add": "^2.0.6",
-    "fvtt-types": "npm:@league-of-foundry-developers/foundry-vtt-types@^12.331.5",
-    "npm": "^11.7.0"
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "12",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }
