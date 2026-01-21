@@ -9,16 +9,12 @@
     },
     "authors": [{
         "name": "jukebox",
-        "url": "jukebox.rodeo",
-        "email": "",
-        "discord": ""
+        "url": "jukebox.rodeo"
     }],
     "grid": {
         "distance": 1,
         "units": "m"
     },
-    "primaryTokenAttribute": "resources.wet",
-    "secondaryTokenAttribute": "resources.armour",
     "url": "https://github.com/the_jukebox/the_big_wet",
     "manifest": "https://github.com/the_jukebox/the_big_wet",
     "esmodules": ["system.mjs"],
