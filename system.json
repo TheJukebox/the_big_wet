@@ -15,8 +15,8 @@
         "distance": 1,
         "units": "m"
     },
-    "url": "https://github.com/the_jukebox/the_big_wet",
-    "manifest": "https://github.com/the_jukebox/the_big_wet",
+    "url": "https://github.com/TheJukebox/the_big_wet",
+    "manifest": "https://github.com/TheJukebox/the_big_wet",
     "esmodules": ["system.mjs"],
     "documentTypes": {
         "Actor": {
