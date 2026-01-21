@@ -1,0 +1,24 @@
+{
+    "id": "the_big_wet",
+    "title": "The Big Wet",
+    "description": "A Post-Diluvian RPG designed by Sam Sorensen and published by Exalted Funeral.",
+    "version": "0.0.1",
+    "compatibility": {
+        "minimum": "12",
+        "maximum": "12"
+    },
+    "authors": [{
+        "name": "jukebox",
+        "url": "jukebox.rodeo",
+        "email": "",
+        "discord": ""
+    }],
+    "grid": {
+        "distance": 1,
+        "units": "m"
+    },
+    "primaryTokenAttribute": "resources.wet",
+    "secondaryTokenAttribute": "resources.armour",
+    "url": "https://github.com/the_jukebox/the_big_wet",
+    "manifest": "https://github.com/the_jukebox/the_big_wet"
+}
