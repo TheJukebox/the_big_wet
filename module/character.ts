@@ -3,13 +3,13 @@ const { api, sheets } = foundry.applications;
 
 export class CharacterDataModel extends foundry.abstract.TypeDataModel {
     static defineSchema() {
-        let woundSeverity = [
-            "Grazed",
-            "Punctured",
-            "Ripped",
-            "Shattered",
-            "Destroyed",
-        ];
+        const woundSeverity = {
+            Grazed: "Grazed",
+            Punctured: "Punctured",
+            Ripped: "Ripped",
+            Shattered: "Shattered",
+            Destroyed: "Destroyed",
+        };
         return {
             stats: new SchemaField({
                 brain: new NumberField({ required: true, integer: true, initial: 0 }),
@@ -23,39 +23,38 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
             notes: new HTMLField({ required: false, blank: true }),
             wounds: new SchemaField({
                 legs: new StringField({
-                    required: true,
-                    blank: false,
+                    required: false,
+                    blank: true,
                     choices: woundSeverity,
                 }),
                 lowerTorso: new StringField({
-                    required: true,
-                    blank: false,
+                    required: false,
+                    blank: true,
                     choices: woundSeverity,
                 }),
                 arms: new StringField({
-                    required: true,
-                    blank: false,
+                    required: false,
+                    blank: true,
                     choices: woundSeverity,
                 }),
                 upperTorso: new StringField({
-                    required: true,
-                    blank: false,
+                    required: false,
+                    blank: true,
                     choices: woundSeverity,
                 }),
                 head: new StringField({
-                    required: true,
-                    blank: false,
+                    required: false,
+                    blank: true,
                     choices: woundSeverity,
                 }),
             }),
-        }
-    };
+        };
+    }
 }
 
 export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorSheetV2) {
     constructor(options = {}) {
         super(options);
-        this.#dragDrop = this.#createDragDropHandlers();
     }
 
     static DEFAULT_OPTIONS = {
@@ -68,23 +67,22 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         actions: {
             viewDoc: this._viewDoc,
         },
-        dragDrop: [{ dragSelector: '[data-drag]', dropSelector: null }],
         form: {
             submitOnChange: true,
         },
     };
 
     _onRender(context: any, options: any) {
-        this.#dragDrop.forEach((d) => d.bind(this.element));
-        this.#disableOverrides();
+        return;
     }
 
     _getEmbeddedDocument(target: EventTarget) {
-        return null;
+        return;
     }
 
     static async _viewDoc(event: Event, target: EventTarget) {
         const doc = this._getEmbeddedDocument(target);
         doc.sheet.render(true);
     }
+
 }
