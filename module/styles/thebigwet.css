@@ -244,3 +244,21 @@
     height: 65%;
     min-height: 65%;
 }
+
+.inventory-header {
+    display: grid;
+    grid-template-columns: 0.25fr 1.5fr 1fr 1fr 1fr;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 0.25fr 1.5fr 1fr 1fr 1fr;
+}
+
+.item-delete button {
+    background: white;
+    border: 0px;
+    border-radius: 0px;
+    width: 25%;
+    height: 100%;
+}

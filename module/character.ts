@@ -64,6 +64,9 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
             width: 703,
             height: 814,
         },
+        actions: {
+            deleteItem: this._onDeleteItem,
+        },
         form: {
             submitOnChange: true,
         },
@@ -88,6 +91,37 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     _onRender(context: any, options: any) {
         super._onRender(context, options);
         return;
+    }
+
+    _attachPartListeners(partId, htmlElement, options) {
+        super._attachPartListeners(partId, htmlElement, options);
+        htmlElement.addEventListener("dragover", (e) => {
+            e.preventDefault();
+        });
+
+        htmlElement.addEventListener("drop", async (e) => {
+            e.preventDefault();
+            const data = TextEditor.getDragEventData(e);
+            if (!data || data.type !== "Item") return;           
+            try {
+                const item = await Item.implementation.fromDropData(data);
+                console.debug("Dropped item: ", item);
+                const itemData = item.toObject();
+                await Item.create(itemData, { parent: this.actor });
+                console.debug("Created item: ", itemData);
+                console.log(this.actor.items);
+            } catch (error) {
+                console.error("we couldnt drop: ", error);
+            }
+        });
+    }
+
+    static async _onDeleteItem(event: Event, target: EventTarget) {
+        const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (item) {
+            await item.delete();
+        };
     }
 }
 

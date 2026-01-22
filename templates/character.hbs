@@ -59,6 +59,26 @@
                     <div class="inventory-title">
                         Inventory // You have Slots = Lungs / 2
                     </div>
+                    <div class="inventory-header">
+                        <div>#</div>
+                        <div>Name</div>
+                        <div>Inv</div>
+                        <div>Prf</div>
+                        <div></div>
+                    </div>
+                    {{#each actor.items as |item index|}}
+                        <div class="item">
+                            <div class="item-index">{{@index}}</div>
+                            <div class="item-name">{{item.name}}</div>
+                            <div class="item-slots">{{item.system.slots}}</div>
+                            <div class="item-proof">{{item.system.proof}}</div>
+                            <div class="item-delete">
+                                <button type="button" data-action="deleteItem" data-item-id="{{item.id}}" data-tooltip="Remove item">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
