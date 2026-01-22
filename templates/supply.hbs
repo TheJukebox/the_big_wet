@@ -1,2 +1,41 @@
-<div class="window-content" autocomplete="off">
+<div class="window-content item-sheet-form" autocomplete="off">
+    <div class="character-sheet">
+        <div class="vertical-text">
+            TOOLSOFTHETRADE 
+        </div>
+        <div class="sheet-content">
+            <div class="line-input">
+                <input name="name" type="text" class="text-input" value="{{item.name}}">
+                <label>Name</label>
+            </div>
+            <div class="line-input">
+                <input name="system.description" type="text" class="text-input" value="{{system.description}}">
+                <label>Description</label>
+            </div>
+            <div class="stats">
+                <div class="box-input">
+                    <input name="system.slots" type="number" class="text-input" value="{{system.slots}}">
+                    <label>Inv</label>
+                </div>
+                <div class="box-input">
+                    <input name="system.bullets" type="number" class="text-input" value="{{system.bullets}}">
+                    <label>Blts</label>
+                </div>
+                <div class="box-input">
+                    <input name="system.proof" type="number" class="text-input" value="{{system.proof}}">
+                    <label>Prf</label>
+                </div>
+                <div class="bigwet-tooltip">
+                    <ul>
+                        <li><span class="small-emphasis">Inv:</span> How many slots does it take up?</li>
+                        <li><span class="small-emphasis">Blts:</span> How many bullets is it worth?</li>
+                        <li><span class="small-emphasis">Prf:</span> How resistant to water is it?</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item-image">
+                <img src="{{item.img}}" alt="{{item.name}}" data-action="editImage" data-tooltip="Change image" />
+            </div>
+        </div>
+    </div>
 </div>

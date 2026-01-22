@@ -8,6 +8,10 @@
     color: black;
 }
 
+.window-content .item-sheet-form {
+    padding: 0;
+}
+
 .window-content .character-sheet-form {
     padding: 0;
 }
@@ -228,4 +232,15 @@
     color: black;
     text-transform: uppercase;
     pointer-events: none;
+}
+
+.item-image {
+    display: grid;
+    justify-items: center;
+}
+.item-image img {
+    background: black;
+    margin: 30px;
+    height: 65%;
+    min-height: 65%;
 }
