@@ -191,6 +191,7 @@
     font-size: 0.75rem;
     background: black;
     color: white;
+    font-weight: bold;
 }
 
 .sheet.thebigwet .emphasis {
@@ -206,6 +207,8 @@
     position: relative;
     grid-column: 1;
     grid-row: 2;
+    pointer-events: auto;
+    z-index: 10;
 }
 
 .sheet.thebigwet .notes-input label {
@@ -247,18 +250,55 @@
 
 .inventory-header {
     display: grid;
-    grid-template-columns: 0.25fr 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 0.25fr 2fr 1fr 1fr 1fr 1fr;
+    background: black;
+    color: white;
+    font-weight: bold;
 }
 
-.item {
+.inventory .item {
     display: grid;
-    grid-template-columns: 0.25fr 1.5fr 1fr 1fr 1fr;
+    grid-template-columns: 0.25fr 2fr 1fr 1fr 1fr 1fr;
+    color: black;
+    margin: 1px;
+}
+
+.inventory .item:hover {
+    cursor: pointer;
+    color: gray;
 }
 
 .item-delete button {
+    all: unset;
+    cursor: pointer;
     background: white;
     border: 0px;
     border-radius: 0px;
     width: 25%;
     height: 100%;
+}
+
+.item-delete button:focus {
+    background: white;
+    border: 0px;
+    border-radius: 0px;
+    width: 25%;
+    height: 100%;
+}
+
+.item-delete button:hover {
+    background: white;
+    border: 0px;
+    border-radius: 0px;
+    width: 25%;
+    height: 100%;
+}
+
+.item-delete i {
+    color: black;
+}
+
+.item-delete button:hover i {
+    color: red;
+    transition: color 0.1s ease;
 }

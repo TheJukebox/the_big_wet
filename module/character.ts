@@ -66,6 +66,7 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         },
         actions: {
             deleteItem: this._onDeleteItem,
+            editItem: this._onEditItem,
         },
         form: {
             submitOnChange: true,
@@ -114,6 +115,16 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
                 console.error("we couldnt drop: ", error);
             }
         });
+    }
+
+    static async _onEditItem(event: Event, target: EventTarget) {
+        event.preventDefault();
+        event.stopPropagation();
+        const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+        const item = this.actor.items.get(itemId);
+        if (item) {
+            item.sheet.render(true);
+        }
     }
 
     static async _onDeleteItem(event: Event, target: EventTarget) {

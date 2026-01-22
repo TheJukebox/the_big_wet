@@ -63,17 +63,19 @@
                         <div>#</div>
                         <div>Name</div>
                         <div>Inv</div>
+                        <div>Blts</div>
                         <div>Prf</div>
                         <div></div>
                     </div>
                     {{#each actor.items as |item index|}}
-                        <div class="item">
+                        <div class="item" data-item-id="{{item.id}}" data-action="editItem" data-tooltip="{{item.system.description}}">
                             <div class="item-index">{{@index}}</div>
                             <div class="item-name">{{item.name}}</div>
                             <div class="item-slots">{{item.system.slots}}</div>
+                            <div class="item-bullets">{{item.system.bullets}}</div>
                             <div class="item-proof">{{item.system.proof}}</div>
                             <div class="item-delete">
-                                <button type="button" data-action="deleteItem" data-item-id="{{item.id}}" data-tooltip="Remove item">
+                                <button type="button" data-action="deleteItem" data-item-id="{{item.id}}">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </div>
