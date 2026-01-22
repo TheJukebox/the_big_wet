@@ -6,11 +6,11 @@
         <div class="sheet-content">
             <div class="line-input">
                 <input type="text" class="text-input" value="{{actor.name}}">
-                <label>1. Choose your character's name</label>
+                <label>1. Choose your character's <span class="emphasis">name</span></label>
             </div>
             <div class="line-input">
                 <input type="text" class="text-input">
-                <label>2. Roll 1d10 for your history then 1d10 for your speciality (pg. 4.1)</label>
+                <label>2. Roll 1d10 for your <span class="emphasis">history</span> then 1d10 for your <span class="emphasis">speciality</span> (pg. 4.1)</label>
             </div>
 
             <div class="stats">
@@ -33,16 +33,31 @@
                 <div class="bigwet-tooltip">
                     Wet changes at the following rates, based on conditions:
                     <ul>
-                        <li>Damp: +1/hr</li>
-                        <li>Dripping: +2/hr</li>
-                        <li>Drenched: +3/hr</li>
-                        <li>Dry: -3 Wet/hr</li>
+                        <li><span class="small-emphasis">Damp:</span> +1/hr</li>
+                        <li><span class="small-emphasis">Dripping:</span> +2/hr</li>
+                        <li><span class="small-emphasis">Drenched:</span> +3/hr</li>
+                        <li><span class="small-emphasis">Dry:</span> -3 Wet/hr</li>
                     </ul>
                     Stay dry to avoid Wet.
                 </div>
             </div>
             <label class="stat-label">3. Roll 3d10 + 25 for each of your stats.<label>
             <label class="wet-label">Except Wet, which is bad (pg. 3.2)<label>
+            <div class="workspace">
+                <div class="wounds-area">
+                    <img src="systems/thebigwet/assets/bigwet-guy.png">
+                    <label>Wounds & Injuries</label>
+                </div>
+                <div class="notes-input">
+                    <textarea name="notes">{{system.notes}}</textarea>
+                    <label>Notes</label>
+                </div>
+                <div class="inventory">
+                    <div class="inventory-title">
+                        Inventory // You have Slots = Lungs / 2
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </form>

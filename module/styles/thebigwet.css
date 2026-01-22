@@ -1,6 +1,11 @@
 .application.sheet.thebigwet.character.actor {
     background: white;
     color: black;
+    resize: both;
+}
+
+.application .window-content {
+    padding: 0px;
 }
 
 .window-content .character-sheet-form {
@@ -15,7 +20,7 @@
 .character-sheet label {
    text-transform: uppercase; 
    white-space: nowrap;
-   font-size: 0.8vw;
+   font-size: 0.8rem;
 }
 
 .sheet.thebigwet .vertical-text {
@@ -23,7 +28,7 @@
     color: black;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    font-size: 6vh;
+    font-size: 4rem;
     font-weight: bold;
     height: 100%;
     white-space: nowrap;
@@ -38,6 +43,7 @@
     padding: 10px;
     border: 4px black solid;
     border-left: 0px;
+    box-sizing: border-box;
 }
 
 .line-input {
@@ -58,7 +64,7 @@
 }
 
 .sheet.thebigwet .line-input label {
-    color: var(--color-text-dark-primary);
+    color: gray; 
 }
 
 .sheet.thebigwet .line-input input:focus {
@@ -109,7 +115,9 @@
     line-height: 0.8;
     padding: 0;
     margin: 0;
-    font-size: 0.9vh;
+    font-size: 0.65rem;
+    color: gray;
+    font-weight: 
 }
 
 .sheet.thebigwet .bigwet-tooltip ul {
@@ -119,4 +127,92 @@
 
 .sheet.thebigwet .bigwet-tooltip li {
     margin: 0 0 0 0;
+}
+
+.sheet.thebigwet .workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3fr 2fr;
+    gap: 5px;
+    width: 100%;
+    height: 70%;
+}
+
+.sheet.thebigwet .wounds-area {
+    grid-column: 1;
+    grid-row: 1;
+    border: 2px solid gray;
+}
+
+.sheet.thebigwet .wounds-area img {
+    border: 0px;
+}
+
+.sheet.thebigwet .notes-input textarea {
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 2;
+    border: 2px solid gray;
+    border-radius: 0px;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+.sheet.thebigwet .inventory {
+    grid-column: 2;
+    grid-row: 1/3;
+    border: 2px solid black;
+}
+
+.sheet.thebigwet .inventory .inventory-title {
+    text-transform: uppercase;
+    padding: 5px;
+    font-size: 0.75rem;
+    background: black;
+    color: white;
+}
+
+.sheet.thebigwet .emphasis {
+    color: black;
+    font-weight: bold;
+}
+
+.sheet.thebigwet .small-emphasis {
+    font-weight: bold;
+}
+
+.sheet.thebigwet .notes-input {
+    position: relative;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.sheet.thebigwet .notes-input label {
+    position: absolute;
+    bottom: 1px;
+    left: 5px;
+    font-size: 10px;
+    color: black;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.sheet.thebigwet .wounds-area {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.sheet.thebigwet .wounds-area label {
+    position: absolute;
+    bottom: 1px;
+    left: 5px;
+    font-size: 10px;
+    color: black;
+    text-transform: uppercase;
+    pointer-events: none;
 }
