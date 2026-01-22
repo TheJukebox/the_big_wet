@@ -18,7 +18,7 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
             }),
             wet: new NumberField({ required: true, integer: true, initial: 0 }),
             history: new StringField({ required: false, blank: true }),
-            specialty: new StringField({ required: false, blank: true }),
+            speciality: new StringField({ required: false, blank: true }),
             trinket: new StringField({ required: false, blank: true }),
             notes: new HTMLField({ required: false, blank: true }),
             wounds: new SchemaField({
@@ -61,8 +61,8 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         classes: ['thebigwet', 'character', 'actor'],
         position: {
             // actual sheet is like 105mm x 119mm
-            width: 603,
-            height: 714,
+            width: 703,
+            height: 814,
         },
         form: {
             submitOnChange: true,
@@ -90,3 +90,4 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         return;
     }
 }
+

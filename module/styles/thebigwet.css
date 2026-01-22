@@ -67,6 +67,15 @@
     color: gray; 
 }
 
+.sheet.thebigwet .line-input .history-specialty {
+    display: flex;
+    gap: 0px;
+}
+
+.sheet.thebigwet .line-input .history-specialty input {
+    display: inline-block;
+}
+
 .sheet.thebigwet .line-input input:focus {
     background: white;
     border-bottom: 3px solid black;
@@ -77,6 +86,10 @@
 .stats {
     display: flex;
     gap: 10px;
+}
+
+.sheet-content label {
+    color: gray;
 }
 
 .sheet.thebigwet .box-input {

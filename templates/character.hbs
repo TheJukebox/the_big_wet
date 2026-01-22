@@ -1,33 +1,36 @@
-<form class="window-content character-sheet-form" autocomplete="off">
+<div class="window-content character-sheet-form" autocomplete="off">
     <div class="character-sheet">
         <div class="vertical-text">
             ONEMORELOSTSOUL
         </div>
         <div class="sheet-content">
             <div class="line-input">
-                <input type="text" class="text-input" value="{{actor.name}}">
+                <input name="name" type="text" class="text-input" value="{{actor.name}}">
                 <label>1. Choose your character's <span class="emphasis">name</span></label>
             </div>
             <div class="line-input">
-                <input type="text" class="text-input">
+                <div class="history-specialty">
+                    <input name="system.history" type="text" class="text-input" value="{{system.history}}">
+                    <input name="system.speciality" type="text" class="text-input" value="{{system.speciality}}">
+                </div>
                 <label>2. Roll 1d10 for your <span class="emphasis">history</span> then 1d10 for your <span class="emphasis">speciality</span> (pg. 4.1)</label>
             </div>
 
             <div class="stats">
                 <div class="box-input">
-                    <input type="number" class="text-input" value="{{system.stats.brain}}">
+                    <input name="system.stats.brain" type="number" class="text-input" value="{{system.stats.brain}}">
                     <label>Brain</label>
                 </div>
                 <div class="box-input">
-                    <input type="number" class="text-input" value="{{system.stats.lungs}}">
+                    <input name="system.stats.lungs" type="number" class="text-input" value="{{system.stats.lungs}}">
                     <label>Lungs</label>
                 </div>
                 <div class="box-input">
-                    <input type="number" class="text-input" value="{{system.stats.nerves}}">
+                    <input name="system.stats.nerves" type="number" class="text-input" value="{{system.stats.nerves}}">
                     <label>Nerves</label>
                 </div>
                 <div class="box-input">
-                    <input type="number" class="text-input" value="{{system.wet}}">
+                    <input name="system.wet" type="number" class="text-input" value="{{system.wet}}">
                     <label>Wet</label>
                 </div>
                 <div class="bigwet-tooltip">
@@ -41,7 +44,7 @@
                     Stay dry to avoid Wet.
                 </div>
             </div>
-            <label class="stat-label">3. Roll 3d10 + 25 for each of your stats.<label>
+            <label class="stat-label">3. Roll 3d10 + 25 for each of your <span class="emphasis">stats.</span><label>
             <label class="wet-label">Except Wet, which is bad (pg. 3.2)<label>
             <div class="workspace">
                 <div class="wounds-area">
@@ -49,7 +52,7 @@
                     <label>Wounds & Injuries</label>
                 </div>
                 <div class="notes-input">
-                    <textarea name="notes">{{system.notes}}</textarea>
+                    <textarea class="notes" name="system.notes">{{system.notes}}</textarea>
                     <label>Notes</label>
                 </div>
                 <div class="inventory">
@@ -60,5 +63,5 @@
             </div>
         </div>
     </div>
-</form>
+</div>
 
