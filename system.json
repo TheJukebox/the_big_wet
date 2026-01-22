@@ -17,5 +17,6 @@
     },
     "url": "https://github.com/TheJukebox/the_big_wet",
     "manifest": "https://github.com/TheJukebox/the_big_wet/blob/main/system.json",
-    "esmodules": ["dist/system.js"]
+    "esmodules": ["dist/system.js"],
+    "styles": ["module/styles/thebigwet.css"]
 }

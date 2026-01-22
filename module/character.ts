@@ -64,25 +64,29 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
             width: 603,
             height: 714,
         },
-        actions: {
-            viewDoc: this._viewDoc,
-        },
         form: {
             submitOnChange: true,
         },
+        window: {
+            title: "test",
+        },
     };
 
+    static PARTS = {
+        form : { template: "systems/thebigwet/templates/character.hbs" }
+    };
+
+    async _prepareContext(options: any) {
+        const context = await super._prepareContext(options);
+
+        context.actor = this.actor;
+        context.system = this.actor.system;
+
+        return context;
+    }
+
     _onRender(context: any, options: any) {
+        super._onRender(context, options);
         return;
     }
-
-    _getEmbeddedDocument(target: EventTarget) {
-        return;
-    }
-
-    static async _viewDoc(event: Event, target: EventTarget) {
-        const doc = this._getEmbeddedDocument(target);
-        doc.sheet.render(true);
-    }
-
 }
