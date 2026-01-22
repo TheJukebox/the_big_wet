@@ -1,11 +1,11 @@
-.application.sheet.thebigwet.character.actor {
-    background: white;
-    color: black;
+.application.sheet.thebigwet {
     resize: both;
 }
 
 .application .window-content {
     padding: 0px;
+    background: white;
+    color: black;
 }
 
 .window-content .character-sheet-form {

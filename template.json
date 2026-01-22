@@ -21,5 +21,16 @@
                 "notes": ""
             }
         }
+    },
+    "Item": {
+        "types": ["supply"],
+        "templates": {
+            "supply": {
+                "slots": 0,
+                "bullets": 0,
+                "proof": 0,
+                "description": ""
+            }
+        }
     }
 }
