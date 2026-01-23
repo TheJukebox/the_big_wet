@@ -185,17 +185,14 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         console.log(r.total);
         const successful: boolean = r.total > wet && r.total < rollTarget;
         const rollHTML: string = `
+            <div class="chat-roll-title">${rollType.toUpperCase()}</div>
             <div class="chat-roll-template">
-                <div class="chat-roll-title">${rollType.toUpperCase()}</div>
                 <div class="chat-roll-results">
                     <div class="chat-roll-box">${wet}</div>
                     <div class="chat-roll-symbol"><</div>
                     <div class="chat-roll-box" data-success="${successful}">${r.total}</div>
                     <div class="chat-roll-symbol"><</div>
                     <div class="chat-roll-box">${rollTarget}</div>
-                </div>
-                <div class="chat-roll-state">
-                    ${successful ? "SUCCESS" : "FAILURE"}
                 </div>
             </div>
         `;
