@@ -76,6 +76,7 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
             deleteItem: this._onDeleteItem,
             editItem: this._onEditItem,
             progressWound: this._progressWound,
+            rollStat: this._rollStat,
         },
         form: {
             submitOnChange: true,
@@ -169,6 +170,42 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
                 await this.actor.update({ "system.wounds.legs": woundSeverity[i+1] ?? woundSeverity[0]});
                 return;
         }
+    }
+
+    static async _rollStat(event: Event, target: EventTarget) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const rollTarget: number = parseInt(target.closest("[data-value]")?.dataset.value);
+        const wet: number = this.actor.system.wet;
+        const rollType: string = target.closest("[data-roll-type]")?.dataset.rollType;
+
+        let r: foundry.dice.Roll<any> = new Roll("1d100");
+        await r.evaluate();
+        console.log(r.total);
+        const successful: boolean = r.total > wet && r.total < rollTarget;
+        const rollHTML: string = `
+            <div class="chat-roll-template">
+                <div class="chat-roll-title">${rollType.toUpperCase()}</div>
+                <div class="chat-roll-results">
+                    <div class="chat-roll-box">${wet}</div>
+                    <div class="chat-roll-symbol"><</div>
+                    <div class="chat-roll-box" data-success="${successful}">${r.total}</div>
+                    <div class="chat-roll-symbol"><</div>
+                    <div class="chat-roll-box">${rollTarget}</div>
+                </div>
+                <div class="chat-roll-state">
+                    ${successful ? "SUCCESS" : "FAILURE"}
+                </div>
+            </div>
+        `;
+
+        ChatMessage.create({
+            user: game.user.id,
+            speaker: ChatMessage.getSpeaker(this.actor),
+            content: rollHTML,
+            sound: "sounds/dice.wav",
+        });
     }
 }
 
