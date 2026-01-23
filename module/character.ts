@@ -1,15 +1,18 @@
 const { HTMLField, NumberField, SchemaField, StringField } = foundry.data.fields;
 const { api, sheets } = foundry.applications;
 
+const woundSeverity = [
+    "Healthy",
+    "Grazed",
+    "Punctured",
+    "Ripped",
+    "Shattered",
+    "Destroyed",
+];
+
 export class CharacterDataModel extends foundry.abstract.TypeDataModel {
+
     static defineSchema() {
-        const woundSeverity = {
-            Grazed: "Grazed",
-            Punctured: "Punctured",
-            Ripped: "Ripped",
-            Shattered: "Shattered",
-            Destroyed: "Destroyed",
-        };
         return {
             stats: new SchemaField({
                 brain: new NumberField({ required: true, integer: true, initial: 0 }),
@@ -26,26 +29,31 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
                     required: false,
                     blank: true,
                     choices: woundSeverity,
+                    initial: woundSeverity[0],
                 }),
                 lowerTorso: new StringField({
                     required: false,
                     blank: true,
                     choices: woundSeverity,
+                    initial: woundSeverity[0],
                 }),
                 arms: new StringField({
                     required: false,
                     blank: true,
                     choices: woundSeverity,
+                    initial: woundSeverity[0],
                 }),
                 upperTorso: new StringField({
                     required: false,
                     blank: true,
                     choices: woundSeverity,
+                    initial: woundSeverity[0],
                 }),
                 head: new StringField({
                     required: false,
                     blank: true,
                     choices: woundSeverity,
+                    initial: woundSeverity[0],
                 }),
             }),
         };
@@ -67,6 +75,7 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         actions: {
             deleteItem: this._onDeleteItem,
             editItem: this._onEditItem,
+            progressWound: this._progressWound,
         },
         form: {
             submitOnChange: true,
@@ -133,6 +142,33 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         if (item) {
             await item.delete();
         };
+    }
+
+    static async _progressWound(event: Event, target: EventTarget) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const woundArea = target.closest("[data-wound]")?.dataset.wound;
+        console.debug("Clicked ", woundArea);
+        const actorWoundLevel = this.actor.system.wounds[woundArea];
+        const i = woundSeverity.indexOf(actorWoundLevel);
+        switch (woundArea) {
+            case "head":
+                await this.actor.update({ "system.wounds.head": woundSeverity[i+1] ?? woundSeverity[0]});
+                return;
+            case "upperTorso":
+                await this.actor.update({ "system.wounds.upperTorso": woundSeverity[i+1] ?? woundSeverity[0]});
+                return;
+            case "lowerTorso":
+                await this.actor.update({ "system.wounds.lowerTorso": woundSeverity[i+1] ?? woundSeverity[0]});
+                return;
+            case "arms":
+                await this.actor.update({ "system.wounds.arms": woundSeverity[i+1] ?? woundSeverity[0]});
+                return;
+            case "legs":
+                await this.actor.update({ "system.wounds.legs": woundSeverity[i+1] ?? woundSeverity[0]});
+                return;
+        }
     }
 }
 

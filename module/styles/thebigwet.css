@@ -165,6 +165,94 @@
     border: 0px;
 }
 
+.sheet.thebigwet .wounds-area .wound-markers .wound-area {
+    position: absolute;
+    filter: blur(10px) opacity(50%);
+} 
+
+.sheet.thebigwet .wounds-area .wound-markers .wound-area[data-wound-level="Healthy"] { background: transparent; }
+.sheet.thebigwet .wounds-area .wound-markers .wound-area[data-wound-level="Grazed"] { background: LightPink; }
+.sheet.thebigwet .wounds-area .wound-markers .wound-area[data-wound-level="Punctured"] { background: LightCoral; }
+.sheet.thebigwet .wounds-area .wound-markers .wound-area[data-wound-level="Ripped"] { background:  FireBrick; }
+.sheet.thebigwet .wounds-area .wound-markers .wound-area[data-wound-level="Shattered"] { background: Red; }
+.sheet.thebigwet .wounds-area .wound-markers .wound-area[data-wound-level="Destroyed"] { background: Black; }
+
+.sheet.thebigwet .wounds-area .head {
+	position: absolute;
+	/* border: 2px black solid; */
+	width: 33px;
+	height: 39px;
+	top: 9%;
+	left: 51%;
+	transform: translateX(-44%);
+	border-radius: 100%;
+	/* background: transparent; */
+}
+
+.sheet.thebigwet .wounds-area .upper {
+	position: absolute;
+	width: 90px;
+	height: 54px;
+	top: 21%;
+	left: 50%;
+	transform: translateX(-46%);
+	border-radius: 100%;
+}
+
+.sheet.thebigwet .wounds-area .lower {
+	position: absolute;
+	width: 68px;
+	height: 86px;
+	top: 34%;
+	left: 50%;
+	transform: translateX(-46%);
+	border-radius: 100%;
+}
+
+.sheet.thebigwet .wounds-area .larm {
+	position: absolute;
+	width: 48px;
+	height: 135px;
+	top: 23%;
+	left: 25%;
+	transform: translateX(-46%) rotate(40deg);
+	border-radius: 100%;
+}
+
+.sheet.thebigwet .wounds-area .rarm {
+	position: absolute;
+	width: 48px;
+	height: 135px;
+	top: 22%;
+	left: 59%;
+	transform: translateX(46%) rotate(-38deg);
+	border-radius: 100%;
+}
+
+.sheet.thebigwet .wounds-area .lleg {
+	position: absolute;
+	width: 48px;
+	height: 155px;
+	top: 55%;
+	left: 26%;
+	transform: translateX(46%) rotate(5deg);
+	border-radius: 100%;
+}
+
+.sheet.thebigwet .wounds-area .rleg {
+	position: absolute;
+	width: 48px;
+	height: 155px;
+	top: 55%;
+	left: 44%;
+	transform: translateX(46%) rotate(-5deg);
+	border-radius: 100%;
+}
+
+.sheet.thebigwet .wounds-area .wound-area:hover {
+    cursor: pointer;
+}
+
 .sheet.thebigwet .notes-input textarea {
     width: 100%;
     height: 100%;
