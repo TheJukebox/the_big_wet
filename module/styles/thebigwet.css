@@ -98,6 +98,7 @@
 
 .sheet-content button {
     color: black;
+    all: unset;
     bottom: 1px;
     left: 5px;
     font-size: 10px;
@@ -108,6 +109,7 @@
 
 .sheet-content button:hover {
     color: gray;
+    all: unset;
     bottom: 1px;
     left: 5px;
     font-size: 10px;
@@ -119,6 +121,7 @@
 
 .sheet-content button:active {
     color: gray;
+    all: unset;
     bottom: 1px;
     left: 5px;
     font-size: 10px;
@@ -130,6 +133,7 @@
 
 .sheet-content button:focus {
     color: gray;
+    all: unset;
     bottom: 1px;
     left: 5px;
     font-size: 10px;
