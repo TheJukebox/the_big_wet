@@ -74,7 +74,7 @@
                         <div>Inv</div>
                         <div>Blts</div>
                         <div>Prf</div>
-                        <div></div>
+                        <div class="add-item" data-action="addItem">+</div>
                     </div>
                     {{#each actor.items as |item index|}}
                         <div class="item" data-item-id="{{item.id}}" data-action="editItem" data-tooltip="{{item.system.description}}">
@@ -83,7 +83,7 @@
                             <div class="item-slots">{{item.system.slots}}</div>
                             <div class="item-bullets">{{item.system.bullets}}</div>
                             <div class="item-proof">{{item.system.proof}}</div>
-                            <div class="item-delete">
+                            <div class="item-delete" data-action="deleteItem">
                                 <button type="button" data-action="deleteItem" data-item-id="{{item.id}}">
                                     <i class="fas fa-trash"></i>
                                 </button>

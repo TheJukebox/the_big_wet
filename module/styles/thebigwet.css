@@ -407,7 +407,12 @@
     color: gray;
 }
 
-.item-delete button {
+.item-add:hover {
+    cursor: pointer;
+    color: gray;
+}
+
+.item-delete div {
     all: unset;
     cursor: pointer;
     background: white;

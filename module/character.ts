@@ -73,6 +73,7 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
             height: 814,
         },
         actions: {
+            addItem: this._onAddItem,
             deleteItem: this._onDeleteItem,
             editItem: this._onEditItem,
             progressWound: this._progressWound,
@@ -127,6 +128,18 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
         });
     }
 
+    static async _onAddItem(event: Event, target: EventTarget) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.debug("Creating item for", this.actor);
+        const itemData = [{name: "New item", type: "supply"}];
+        const created = await Item.implementation.create(itemData, {parent: this.actor});
+        console.debug("Created: ", created);
+        if (created) {
+            created[0].sheet.render(true);
+        }
+    }
+
     static async _onEditItem(event: Event, target: EventTarget) {
         event.preventDefault();
         event.stopPropagation();
@@ -138,6 +151,8 @@ export class CharacterSheet extends api.HandlebarsApplicationMixin(sheets.ActorS
     }
 
     static async _onDeleteItem(event: Event, target: EventTarget) {
+        event.preventDefault();
+        event.stopPropagation();
         const itemId = target.closest("[data-item-id]")?.dataset.itemId;
         const item = this.actor.items.get(itemId);
         if (item) {
