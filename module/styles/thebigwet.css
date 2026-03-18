@@ -96,6 +96,48 @@
     color: gray;
 }
 
+.sheet-content button {
+    color: black;
+    bottom: 1px;
+    left: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    outline: none;
+    position: absolute;
+}
+
+.sheet-content button:hover {
+    color: gray;
+    bottom: 1px;
+    left: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    position: absolute;
+    outline: none;
+    cursor: pointer;
+}
+
+.sheet-content button:active {
+    color: gray;
+    bottom: 1px;
+    left: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    position: absolute;
+    outline: none;
+    cursor: pointer;
+}
+
+.sheet-content button:focus {
+    color: gray;
+    bottom: 1px;
+    left: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    position: absolute;
+    outline: none;
+}
+
 .sheet.thebigwet .box-input {
     position: relative;
     width: 60px;
